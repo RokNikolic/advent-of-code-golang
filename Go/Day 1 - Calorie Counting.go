@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -10,9 +11,22 @@ import (
 func part1(puzzleInput string) int {
 	cleanedInput := strings.Replace(puzzleInput, "\r", "", -1)
 	chunks := strings.Split(cleanedInput, "\n\n")
-	fmt.Println(chunks[0])
 
-	return 0
+	maxSum := 0
+	for _, chunk := range chunks {
+		lines := strings.Split(chunk, "\n")
+		sum := 0
+		for _, line := range lines {
+			intValue, _ := strconv.Atoi(line)
+			sum += intValue
+		}
+
+		if sum > maxSum {
+			maxSum = sum
+		}
+	}
+
+	return maxSum
 }
 
 func day1() {
