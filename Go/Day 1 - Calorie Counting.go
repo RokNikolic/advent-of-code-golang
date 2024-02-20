@@ -8,9 +8,8 @@ import (
 	"strings"
 )
 
-func bothParts(puzzleInput string, part int) int {
-	cleanedInput := strings.Replace(puzzleInput, "\r", "", -1)
-	chunks := strings.Split(cleanedInput, "\n\n")
+func day1PartBoth(puzzleInput string, part int) int {
+	chunks := strings.Split(puzzleInput, "\n\n")
 
 	var allSums []int
 	for _, chunk := range chunks {
@@ -42,10 +41,11 @@ func bothParts(puzzleInput string, part int) int {
 func day1() {
 	puzzleRead, _ := os.ReadFile("Input/day1.txt")
 	puzzleString := string(puzzleRead)
+	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
-	result1 := bothParts(puzzleString, 1)
-	fmt.Printf("Part 1 result is: %v\n", result1)
+	result1 := day1PartBoth(puzzleCleaned, 1)
+	fmt.Printf("Day1 Part 1 result is: %v\n", result1)
 
-	result2 := bothParts(puzzleString, 2)
-	fmt.Printf("Part 2 result is: %v\n", result2)
+	result2 := day1PartBoth(puzzleCleaned, 2)
+	fmt.Printf("Day2 Part 2 result is: %v\n", result2)
 }
