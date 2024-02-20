@@ -44,8 +44,8 @@ func day1() {
 	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
 	result1 := day1PartBoth(puzzleCleaned, 1)
-	fmt.Printf("Day1 Part 1 result is: %v\n", result1)
+	fmt.Printf("Day 1 Part 1 result is: %v\n", result1)
 
 	result2 := day1PartBoth(puzzleCleaned, 2)
-	fmt.Printf("Day2 Part 2 result is: %v\n", result2)
+	fmt.Printf("Day 1 Part 2 result is: %v\n", result2)
 }
