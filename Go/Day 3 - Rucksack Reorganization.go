@@ -6,15 +6,41 @@ import (
 	"strings"
 )
 
-func commonLetter(string1 string, string2 string) int {
+func stringIntersection(strings ...string) {
+
+}
+
+func stringIntersectionBasic(string1 string, string2 string) {
+	workingSet := make(map[int32]bool)
+	for _, char := range string1 {
+		workingSet[char] = true
+	}
+	intersectionSet := make(map[int32]bool)
+	for _, char := range string2 {
+		if _, found := workingSet[char]; found {
+			intersectionSet[char] = true
+		}
+	}
+}
+
+func commonLetter(string1 string, string2 string) []int {
+	var commonLetters []int
 	for _, letter1 := range string1 {
 		for _, letter2 := range string2 {
 			if letter1 == letter2 {
-				return int(letter1)
+				commonLetters = append(commonLetters, int(letter1))
 			}
 		}
 	}
-	return -1
+	return commonLetters
+}
+
+func getPriority(asciiChar int) int {
+	if asciiChar > 96 {
+		return asciiChar - 96
+	} else {
+		return asciiChar - 64 + 26
+	}
 }
 
 func day3Part1(puzzleInput string) int {
@@ -23,12 +49,9 @@ func day3Part1(puzzleInput string) int {
 	for _, line := range lines {
 		middlePoint := len(line) / 2
 		first, second := line[:middlePoint], line[middlePoint:]
-		asciiLetter := commonLetter(first, second)
-		if asciiLetter > 96 {
-			totalSum += asciiLetter - 96
-		} else {
-			totalSum += asciiLetter - 64 + 26
-		}
+		asciiLetters := commonLetter(first, second)
+		fmt.Println(asciiLetters)
+		totalSum += getPriority(asciiLetters[0])
 	}
 	return totalSum
 }
