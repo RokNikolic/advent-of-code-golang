@@ -1,4 +1,4 @@
-package main
+package day1
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func day1PartBoth(puzzleInput string, part int) int {
+func partBoth(puzzleInput string, part int) int {
 	chunks := strings.Split(puzzleInput, "\n\n")
 
 	var allSums []int
@@ -38,11 +38,11 @@ func day1PartBoth(puzzleInput string, part int) int {
 	return maxSum
 }
 
-func day1() {
+func Day1() {
 	puzzleRead, _ := os.ReadFile("Input/day1.txt")
 	puzzleString := string(puzzleRead)
 	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
-	fmt.Printf("Day 1 Part 1 result is: %v\n", day1PartBoth(puzzleCleaned, 1))
-	fmt.Printf("Day 1 Part 2 result is: %v\n", day1PartBoth(puzzleCleaned, 2))
+	fmt.Printf("Day 1 Part 1 result is: %v\n", partBoth(puzzleCleaned, 1))
+	fmt.Printf("Day 1 Part 2 result is: %v\n", partBoth(puzzleCleaned, 2))
 }

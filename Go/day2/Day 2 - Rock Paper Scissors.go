@@ -1,4 +1,4 @@
-package main
+package day2
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func day2Part1(puzzleInput string) int {
+func part1(puzzleInput string) int {
 	lines := strings.Split(puzzleInput, "\n")
 
 	totalStore := 0
@@ -37,7 +37,7 @@ func day2Part1(puzzleInput string) int {
 	return totalStore
 }
 
-func day2Part2(puzzleInput string) int {
+func part2(puzzleInput string) int {
 	lines := strings.Split(puzzleInput, "\n")
 
 	totalStore := 0
@@ -70,11 +70,11 @@ func day2Part2(puzzleInput string) int {
 	return totalStore
 }
 
-func day2() {
+func Day2() {
 	puzzleRead, _ := os.ReadFile("Input/day2.txt")
 	puzzleString := string(puzzleRead)
 	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
-	fmt.Printf("Day 2 Part 1 result is: %v\n", day2Part1(puzzleCleaned))
-	fmt.Printf("Day 2 Part 2 result is: %v\n", day2Part2(puzzleCleaned))
+	fmt.Printf("Day 2 Part 1 result is: %v\n", part1(puzzleCleaned))
+	fmt.Printf("Day 2 Part 2 result is: %v\n", part2(puzzleCleaned))
 }

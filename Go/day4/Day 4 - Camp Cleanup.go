@@ -1,4 +1,4 @@
-package main
+package day4
 
 import (
 	"fmt"
@@ -26,7 +26,7 @@ func stringToIntRange(inputRange []string) []int {
 	return outputRange
 }
 
-func day4PartBoth(puzzleInput string, part int) int {
+func partBoth(puzzleInput string, part int) int {
 	lines := strings.Split(puzzleInput, "\n")
 	totalSum := 0
 	for _, line := range lines {
@@ -48,11 +48,11 @@ func day4PartBoth(puzzleInput string, part int) int {
 	return totalSum
 }
 
-func day4() {
+func Day4() {
 	puzzleRead, _ := os.ReadFile("Input/day4.txt")
 	puzzleString := string(puzzleRead)
 	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
-	fmt.Printf("Day 4 Part 1 result is: %v\n", day4PartBoth(puzzleCleaned, 1))
-	fmt.Printf("Day 4 Part 2 result is: %v\n", day4PartBoth(puzzleCleaned, 2))
+	fmt.Printf("Day 4 Part 1 result is: %v\n", partBoth(puzzleCleaned, 1))
+	fmt.Printf("Day 4 Part 2 result is: %v\n", partBoth(puzzleCleaned, 2))
 }
