@@ -15,10 +15,10 @@ func part2(puzzleInput string) int {
 }
 
 func Day5() {
-	puzzleRead, _ := os.ReadFile("Input/day3.txt")
+	puzzleRead, _ := os.ReadFile("Input/day5.txt")
 	puzzleString := string(puzzleRead)
 	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
-	fmt.Printf("Day 3 Part 1 result is: %v\n", part1(puzzleCleaned))
-	fmt.Printf("Day 3 Part 2 result is: %v\n", part2(puzzleCleaned))
+	fmt.Printf("Day 5 Part 1 result is: %v\n", part1(puzzleCleaned))
+	fmt.Printf("Day 5 Part 2 result is: %v\n", part2(puzzleCleaned))
 }
