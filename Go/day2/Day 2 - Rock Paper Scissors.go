@@ -71,7 +71,10 @@ func part2(puzzleInput string) int {
 }
 
 func Day2() {
-	puzzleRead, _ := os.ReadFile("Input/day2.txt")
+	puzzleRead, err := os.ReadFile("Input/day2.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
 	puzzleString := string(puzzleRead)
 	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 

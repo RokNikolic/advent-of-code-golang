@@ -39,7 +39,10 @@ func partBoth(puzzleInput string, part int) int {
 }
 
 func Day1() {
-	puzzleRead, _ := os.ReadFile("Input/day1.txt")
+	puzzleRead, err := os.ReadFile("Input/day1.txt")
+	if err != nil {
+		fmt.Println(err)
+	}
 	puzzleString := string(puzzleRead)
 	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
