@@ -15,7 +15,7 @@ func part2(puzzleInput string) int {
 }
 
 func Day7() {
-	puzzleRead, err := os.ReadFile("Input/day7.txt")
+	puzzleRead, err := os.ReadFile("../Input/day7.txt")
 	if err != nil {
 		fmt.Println(err)
 	}

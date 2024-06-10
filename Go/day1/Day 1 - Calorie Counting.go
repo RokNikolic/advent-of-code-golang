@@ -39,7 +39,7 @@ func partBoth(puzzleInput string, part int) int {
 }
 
 func Day1() {
-	puzzleRead, err := os.ReadFile("Input/day1.txt")
+	puzzleRead, err := os.ReadFile("../Input/day1.txt")
 	if err != nil {
 		fmt.Println(err)
 	}
