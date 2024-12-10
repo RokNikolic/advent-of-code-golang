@@ -1,4 +1,4 @@
-package day2
+package year2022
 
 import (
 	"fmt"
@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func part1(puzzleInput string) int {
+func day2part1(puzzleInput string) int {
 	lines := strings.Split(puzzleInput, "\n")
 
 	totalStore := 0
@@ -37,7 +37,7 @@ func part1(puzzleInput string) int {
 	return totalStore
 }
 
-func part2(puzzleInput string) int {
+func day2part2(puzzleInput string) int {
 	lines := strings.Split(puzzleInput, "\n")
 
 	totalStore := 0
@@ -71,13 +71,14 @@ func part2(puzzleInput string) int {
 }
 
 func Day2() {
-	puzzleRead, err := os.ReadFile("../Input/day2.txt")
+	puzzleRead, err := os.ReadFile("2022/Input/day2.txt")
 	if err != nil {
 		fmt.Println(err)
-	}
-	puzzleString := string(puzzleRead)
-	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
+	} else {
+		puzzleString := string(puzzleRead)
+		puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
-	fmt.Printf("Day 2 Part 1 result is: %v\n", part1(puzzleCleaned))
-	fmt.Printf("Day 2 Part 2 result is: %v\n", part2(puzzleCleaned))
+		fmt.Printf("Part 1 result is: %v\n", day2part1(puzzleCleaned))
+		fmt.Printf("Part 2 result is: %v\n", day2part2(puzzleCleaned))
+	}
 }

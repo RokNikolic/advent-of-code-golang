@@ -1,4 +1,4 @@
-package day4
+package year2022
 
 import (
 	"fmt"
@@ -26,7 +26,7 @@ func stringToIntRange(inputRange []string) []int {
 	return outputRange
 }
 
-func partBoth(puzzleInput string, part int) int {
+func day4part1(puzzleInput string) int {
 	lines := strings.Split(puzzleInput, "\n")
 	totalSum := 0
 	for _, line := range lines {
@@ -38,10 +38,23 @@ func partBoth(puzzleInput string, part int) int {
 		smallestRange := min(firstLength, secondLength)
 		overlap := rangeOverlap(intRange1, intRange2)
 
-		if smallestRange == len(overlap) && part == 1 {
+		if smallestRange == len(overlap) {
 			totalSum += 1
 		}
-		if len(overlap) > 0 && part == 2 {
+	}
+	return totalSum
+}
+
+func day4part2(puzzleInput string) int {
+	lines := strings.Split(puzzleInput, "\n")
+	totalSum := 0
+	for _, line := range lines {
+		ranges := strings.Split(line, ",")
+		firstRange, secondRange := strings.Split(ranges[0], "-"), strings.Split(ranges[1], "-")
+		intRange1, intRange2 := stringToIntRange(firstRange), stringToIntRange(secondRange)
+		overlap := rangeOverlap(intRange1, intRange2)
+
+		if len(overlap) > 0 {
 			totalSum += 1
 		}
 	}
@@ -49,13 +62,14 @@ func partBoth(puzzleInput string, part int) int {
 }
 
 func Day4() {
-	puzzleRead, err := os.ReadFile("../Input/day4.txt")
+	puzzleRead, err := os.ReadFile("2022/Input/day4.txt")
 	if err != nil {
 		fmt.Println(err)
-	}
-	puzzleString := string(puzzleRead)
-	puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
+	} else {
+		puzzleString := string(puzzleRead)
+		puzzleCleaned := strings.Replace(puzzleString, "\r", "", -1)
 
-	fmt.Printf("Day 4 Part 1 result is: %v\n", partBoth(puzzleCleaned, 1))
-	fmt.Printf("Day 4 Part 2 result is: %v\n", partBoth(puzzleCleaned, 2))
+		fmt.Printf("Part 1 result is: %v\n", day4part1(puzzleCleaned))
+		fmt.Printf("Part 2 result is: %v\n", day4part2(puzzleCleaned))
+	}
 }
